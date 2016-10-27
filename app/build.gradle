@@ -17,7 +17,7 @@ android {
             proguardFiles getDefaultProguardFile('proguard-android.txt'), 'proguard-rules.pro'
         }
     }
-    dataBinding{
+    dataBinding {
         enabled true
     }
 }
@@ -29,5 +29,6 @@ dependencies {
     })
     compile 'com.android.support:appcompat-v7:24.2.1'
     testCompile 'junit:junit:4.12'
-    compile project(':bindingimageview-handler-glide')
+    compile 'com.github.bumptech.glide:glide:3.7.0'
+    compile project(':bindingimageview')
 }

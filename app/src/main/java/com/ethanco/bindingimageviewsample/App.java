@@ -14,5 +14,7 @@ public class App extends Application {
         super.onCreate();
 
         BindingImageFacade.init();
+        //注册处理者 (可以注册多次多个，会按顺序进行执行)
+        BindingImageFacade.register(new StringHandler());
     }
 }

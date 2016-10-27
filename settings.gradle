@@ -1,1 +1,1 @@
-include ':app', ':bindingimageview', ':bindingimageview-handler-glide'
+include ':app', ':bindingimageview'

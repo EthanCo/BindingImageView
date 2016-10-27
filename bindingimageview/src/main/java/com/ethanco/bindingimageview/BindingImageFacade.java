@@ -35,7 +35,7 @@ public class BindingImageFacade {
         }
     }
 
-    public static List<IImageHandler> imageHandlers = new ArrayList<>();
+    private static List<IImageHandler> imageHandlers = new ArrayList<>();
 
     public static void register(IImageHandler imageHandler) {
         if (!imageHandlers.contains(imageHandler)) {
