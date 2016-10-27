@@ -18,7 +18,27 @@ Add it in your root build.gradle at the end of repositories:
 	    compile 'com.github.EthanCo:BindingImageView:1.0.3'
 	}
 
-### 使用 ###
+## 使用 ##
+
+新建处理类  
+
+	public class StringHandler implements IImageHandler {
+
+	    //进行处理
+	    @Override
+	    public void handle(Object obj, ImageView imageview) {
+	        String value = (String) obj;
+	        Context context = imageview.getContext();
+			//第三方图片加载框架进行处理
+	        Glide.with(context).load(value).centerCrop().crossFade().into(imageview);
+	    }
+	
+	    //本类是否可以处理
+	    @Override
+	    public boolean isThis(Object obj) {
+	        return obj instanceof String;
+	    }
+	}
 
 在Application#onCreate()中添加  
 
@@ -65,6 +85,8 @@ Add it in your root build.gradle at the end of repositories:
 
 即可  
 
+## 控件 ##
+
 ### BindingImageView ###
 
 继承自ImageView的View，一般情况下使用这个即可
@@ -73,6 +95,19 @@ Add it in your root build.gradle at the end of repositories:
 
 继承自CircleImageView的View，如需使用圆形图，使用这个  
 
-## Glide打包解决方法 ##
+### 自定义Binding ImageView ###
 
-如果使用Glide图片加载库，可使用[BindingImageView-Handler-Glide](https://github.com/EthanCo/BindingImageView-Handler-Glide)，进行了Glide的一条龙实现。
+可继承任何自定义的ImageView，需实现IBindingImageView接口，添加  BindingImageFacade.handle(obj, this); 即可
+
+	public class BindingCustomImageView extends CustomImageView implements IBindingImageView {
+
+	    public void setBindingSrc(Object obj) {
+	        BindingImageFacade.handle(obj, this);
+	    }
+	}  
+
+	
+
+## Glide打包解决方案 ##
+
+如果使用Glide图片加载库，可使用 **[BindingImageView-Handler-Glide](https://github.com/EthanCo/BindingImageView-Handler-Glide)** ，进行了Glide的一条龙实现，无需再自己添加处理项(Handler)
