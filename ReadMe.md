@@ -53,6 +53,7 @@ Add it in your root build.gradle at the end of repositories:
 	
 	    <data>
 	
+			<!--TestBean为DataBinding Bean对象,具体可看Sample-->
 	        <variable
 	            name="testbean"
 	            type="com.ethanco.bindingimageviewsample.TestBean" />
