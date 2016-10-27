@@ -8,7 +8,7 @@ import android.widget.ImageView;
  * Created by EthanCo on 2016/10/27.
  */
 
-public class BindingImageView extends ImageView {
+public class BindingImageView extends ImageView implements IBindingImageView {
     public BindingImageView(Context context) {
         super(context);
     }
