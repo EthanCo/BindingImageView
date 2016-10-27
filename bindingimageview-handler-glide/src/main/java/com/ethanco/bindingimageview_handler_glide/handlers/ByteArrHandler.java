@@ -17,7 +17,7 @@ public class ByteArrHandler implements IImageHandler {
     public void handle(Object obj, ImageView imageview) {
         byte[] value = (byte[]) obj;
         Context context = imageview.getContext();
-        Glide.with(context).load(value).into(imageview);
+        Glide.with(context).load(value).centerCrop().crossFade().into(imageview);
     }
 
     @Override

@@ -16,7 +16,7 @@ public class ObjectHandler implements IImageHandler {
     @Override
     public void handle(Object obj, ImageView imageview) {
         Context context = imageview.getContext();
-        Glide.with(context).load(obj).into(imageview);
+        Glide.with(context).load(obj).centerCrop().crossFade().into(imageview);
     }
 
     @Override
